@@ -12,14 +12,18 @@ void loop() {
   delay(4000);
   //Stop and turn right
   prizm.setMotorSpeeds(-360,360);
-  delay(600);
-  //Go forward slow
-    prizm.setMotorSpeeds(500,200);
-  delay(4000);
-  //Go Forward Slow and Stop
-    delay(600);
-  //Go forward slow
+  delay(510);
+  //Go forward Slow and Stop
     prizm.setMotorSpeeds(360,360);
-  delay(100);
+  delay(1500);
+   prizm.setMotorSpeeds(360,-360);
+  delay(500);
+  //Go forward Slow
+     prizm.setMotorSpeeds(360,360);
+  delay(900);
+  //Go forward 1m Pg 164
+    prizm.setMotorSpeeds(360,360);
+  delay(2000);
+  prizm.setServoPosition(1,180);
   prizm.PrizmEnd();
 }
