@@ -24,8 +24,8 @@ void loop() {
   delay(900);
   //Go forward 1m Pg 164
     prizm.setMotorSpeeds(360,360);
-  delay(2000);
+  delay(1500);
   prizm.setServoPosition(1,0);
-  delay(100);
+  delay(250);
   prizm.PrizmEnd();
 }
