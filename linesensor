@@ -1,0 +1,40 @@
+ #include <PRIZM.h>
+ PRIZM prizm;
+ 
+ void setup() {
+  prizm.PrizmBegin();
+  //Pg165
+  prizm.setMotorInvert(2,1);
+  
+  }
+
+ void loop() {
+ if (prizm.readLineSensor(2)==1){
+  prizm.setMotorSpeeds(10,360);
+  delay(2);
+ }
+
+ if (prizm.readLineSensor(2)==0){
+  prizm.setMotorSpeeds(360,10);
+  delay(2);
+ }
+}
+
+ void turnRight() {
+  prizm.setMotorSpeeds(-360,360);
+  delay(600);
+}
+
+ void avoidwalls() {
+    int distance = prizm.readSonicSensorCM(3);
+  if (distance > 100){
+    prizm.setMotorSpeeds(360,360);
+    delay(100);
+  } else if (distance < 100 && distance > 50){
+   prizm.setMotorSpeeds(180,180);
+   delay(100);
+ } else if (distance <= 50){
+  turnRight();
+ }
+
+ }
