@@ -5,12 +5,10 @@
   prizm.PrizmBegin();
   //Pg165
   prizm.setMotorInvert(2,1);
-  Serial.begin(9600);
  }
 
  void loop() {
   int distance = prizm.readSonicSensorCM(3);
-  Serial.println(distance);
   if (distance > 100){
     prizm.setMotorSpeeds(360,360);
     delay(100);
@@ -18,7 +16,11 @@
    prizm.setMotorSpeeds(180,180);
    delay(100);
  } else if (distance <= 50){
-  prizm.setMotorSpeeds(-360,360);
-  delay(100);
+  turnRight();
  }
+}
+
+void turnRight(){
+  prizm.setMotorSpeeds(-360,360);
+  delay(600);
 }
